@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.11.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.model'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    compile("com.alibaba:fastjson:1.2.68")
+    compile("org.apache.commons:commons-lang3:3.7")
+    compile("commons-collections:commons-collections:3.2.2")
+    compile("commons-beanutils:commons-beanutils:1.9.3")
+    compile("commons-io:commons-io:2.6")
+    compile("ma.glasnost.orika:orika-core:1.5.2")
+    //mybatis
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2")
+    compile("com.alibaba:druid:1.1.22")
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.4'
+    runtime('mysql:mysql-connector-java')
+    // swagger
+    compile("io.springfox:springfox-swagger-ui:2.9.2")
+    compile("io.springfox:springfox-swagger2:2.9.2")
+}
+
+test {
+    useJUnitPlatform()
+}
