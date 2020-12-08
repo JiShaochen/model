@@ -17,7 +17,7 @@ spring:
     poolPreparedStatements: true
     filters: stat,wall,slf4j
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.95.197.255:3307/lizheng?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3307/lizheng?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
     platform: mysql
