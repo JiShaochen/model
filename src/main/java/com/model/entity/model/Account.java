@@ -26,6 +26,7 @@ public class Account implements Serializable {
     private static final long serialVersionUID = -7148327092097653501L;
     @TableId(type = IdType.AUTO)
     private Integer id;
+    private String userName;
     private String status;
     private String accountType;
     private String equipment;
