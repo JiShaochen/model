@@ -50,3 +50,11 @@ swagger:
   title: model
   version: V1.0
   enable: true
+  #mybatis-plus.type-aliases-package=com.mht.springbootmybatisplus.entity
+#mybatis-plus.configuration.map-underscore-to-camel-case: true
+# mybatis plus
+mybatis-plus:
+  type-aliases-package: com.model.mapper
+  configuration:
+    map-underscore-to-camel-case: true
+
