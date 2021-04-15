@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/7/23 下午7:54
  * @desc  属性映射工具.
  */

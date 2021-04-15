@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author JiShaochen
+ * @author Morning JS
  * @date 2020/12/7 17:00
  * @desc mapper
  */

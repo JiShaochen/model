@@ -5,14 +5,16 @@ import com.model.common.utils.exception.ExceptionManager;
 import com.model.common.utils.page.PageParam;
 import com.model.entity.vo.CourseVO;
 import com.model.service.model.ModelService;
+import com.model.service.syncmodel.abstrcat.SyncModelAbstract;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
- * @author JiShaochen
+ * @author Morning JS
  * @date 2020/12/7 16:46
  * @desc 模板controller
  */
@@ -23,6 +25,10 @@ public class ModelController {
 
     @Resource
     ModelService modelService;
+
+    // 可以通过这种方式将其注入到map中。
+    @Resource
+    Map<String, SyncModelAbstract> syncModelService;
 
     @Resource
     ExceptionManager exceptionManager;
@@ -63,6 +69,14 @@ public class ModelController {
     @ApiOperation(value = "getList分页查询测试")
     public AbstractApiResult postList(@ModelAttribute PageParam pageParam) {
         return AbstractApiResult.success(modelService.postList(pageParam));
+    }
+
+    @GetMapping(value = "/sync/test")
+    @ApiOperation(value = "测试不同服务同步数据")
+    public AbstractApiResult testSync() {
+        syncModelService.get(SyncModelAbstract.TYPE_B).SyncModelData("1.2.3.4.5.6.7");
+        syncModelService.get(SyncModelAbstract.TYPE_A).SyncModelData("1.2.3.4.5.6.7");
+        return AbstractApiResult.success();
     }
 
 }

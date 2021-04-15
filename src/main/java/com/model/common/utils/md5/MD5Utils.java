@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 /**
- * @author kingboy
+ * @author Morning JS
  * @date 2017/7/22 下午1:00
  * @desc MD5工具类, 全部接收UTF编码的String
  */

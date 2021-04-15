@@ -11,7 +11,7 @@ import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/8/1 下午5:10
  * @desc 全局异常捕捉并转换异常
  */

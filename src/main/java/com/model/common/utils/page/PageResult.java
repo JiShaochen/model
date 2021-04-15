@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/7/23 下午7:53
  * @param <T> 实体类型
  * @desc  分页容器.

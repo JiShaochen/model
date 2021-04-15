@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author beyondLi
+ * @author Morning JS
  * @desc 解决跨域问题
  */
 @Configuration

@@ -1,7 +1,7 @@
 package com.model.common.utils.page;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/7/23 下午7:54
  * @desc  分页请求参数封装.
  */

@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/7/23 下午9:12
  * @desc  正则.
  */

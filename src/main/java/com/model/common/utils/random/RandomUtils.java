@@ -3,7 +3,7 @@ package com.model.common.utils.random;
 import java.util.Random;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
+ * @author Morning JS
  * @date 2017/7/24 上午11:05
  * @desc  随机生成工具类.
  */

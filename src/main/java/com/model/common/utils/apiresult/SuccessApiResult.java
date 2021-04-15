@@ -3,7 +3,7 @@ package com.model.common.utils.apiresult;
 import lombok.Data;
 
 /**
- * @author    kingboy--KingBoyWorld@163.com
+ * @author    Morning JS
  * @date    2017/7/21 上午11:28
  * @desc    正确返回体
  */

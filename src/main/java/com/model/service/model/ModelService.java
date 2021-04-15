@@ -5,7 +5,7 @@ import com.model.common.utils.page.PageResult;
 import com.model.entity.vo.CourseVO;
 
 /**
- * @author JiShaochen
+ * @author Morning JS
  * @date 2020/12/7 16:59
  * @desc
  */

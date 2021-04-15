@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 
 /**
- * @author Leo
+ * @author Morning JS
  * @className: CommonResponseVO
  * @desc 返回参数
  * @date 2020/6/16 11:02

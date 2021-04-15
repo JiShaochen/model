@@ -8,6 +8,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+/**
+ * @Author: Morning JS
+ * @Date: 2021/4/15
+*/
 public class HttpClient {
     public static String doGet(String httpurl) {
         HttpURLConnection connection = null;
