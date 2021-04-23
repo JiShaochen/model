@@ -1,4 +1,4 @@
-CREATE TABLE `account` (
+CREATE TABLE IF NOT EXISTS `account` (
    `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
    `user_name` varchar(49) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '账户名称',
    `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '账户状态',

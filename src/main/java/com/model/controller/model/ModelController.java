@@ -1,8 +1,10 @@
 package com.model.controller.model;
 
+import com.model.common.user.UserThreadLocalDTO;
 import com.model.common.utils.apiresult.AbstractApiResult;
 import com.model.common.utils.exception.ExceptionManager;
 import com.model.common.utils.page.PageParam;
+import com.model.entity.model.Account;
 import com.model.entity.vo.CourseVO;
 import com.model.service.model.ModelService;
 import com.model.service.syncmodel.abstrcat.SyncModelAbstract;
@@ -36,6 +38,15 @@ public class ModelController {
     @GetMapping(value = "/test")
     @ApiOperation(value = "测试接口是否能正常通过")
     public AbstractApiResult test() {
+        Account threadLocal = UserThreadLocalDTO.getThreadLocal();
+        String name = Thread.currentThread().getName();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("thread name is " + name + "   accountId :" + threadLocal.getId());
+        System.out.println("=====================================");
         return AbstractApiResult.success();
     }
 
