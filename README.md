@@ -21,3 +21,6 @@
 > 添加了mybatis-plus
 
 > 集成了JWT
+
+2021.4.23
+> 解决BigDecimal序列化丢失小数点问题

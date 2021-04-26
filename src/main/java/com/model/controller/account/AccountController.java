@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Morning JS
@@ -27,6 +28,15 @@ public class AccountController {
     public AbstractApiResult login(@RequestBody LoginDTO loginDTO, HttpServletResponse response) {
         accountService.login(loginDTO, response);
         return AbstractApiResult.success();
+    }
+
+
+    public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        int i = atomicInteger.get();
+        int i1 = atomicInteger.get();
+        System.out.println(i + "   " + i1);
+
     }
 
 }
