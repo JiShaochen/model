@@ -1,6 +1,7 @@
 package com.model.common.utils.apiresult;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Morning JS
@@ -8,6 +9,7 @@ import lombok.Data;
  * @desc  错误返回.
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class ErrorApiResult extends AbstractApiResult {
 
     private String msg;
