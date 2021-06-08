@@ -1,3 +1,4 @@
+/*
 package com.model.controller.account;
 
 import com.model.common.utils.apiresult.AbstractApiResult;
@@ -12,11 +13,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.atomic.AtomicInteger;
 
+*/
 /**
  * @author Morning JS
  * @date 2021/4/15 17:45
  * @desc 账号相关
- */
+ *//*
+
 @Api(value = "/account", tags = "账号相关")
 @RestController
 @RequestMapping(value = "/account")
@@ -39,4 +42,4 @@ public class AccountController {
 
     }
 
-}
+}*/

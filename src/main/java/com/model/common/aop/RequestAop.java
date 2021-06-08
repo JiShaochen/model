@@ -32,6 +32,7 @@ public class RequestAop {
 
         Object proceed = null;
         try {
+/*
             String name = Thread.currentThread().getName();
             System.out.println("thread name is " + name);
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -40,6 +41,7 @@ public class RequestAop {
             Account account = JsonUtils.jsonToBean(claims.get("account").toString(), Account.class);
             account.setId(++count);
             UserThreadLocalDTO.setThreadLocal(account);
+*/
 
             //方法执行完成后执行的方法
             proceed = pro.proceed();

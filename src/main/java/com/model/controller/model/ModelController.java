@@ -1,3 +1,4 @@
+/*
 package com.model.controller.model;
 
 import com.model.common.user.UserThreadLocalDTO;
@@ -15,11 +16,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Map;
 
+*/
 /**
  * @author Morning JS
  * @date 2020/12/7 16:46
  * @desc 模板controller
- */
+ *//*
+
 @Api(value = "/model", tags = "模板模块")
 @RestController
 @RequestMapping(value = "/model")
@@ -90,4 +93,4 @@ public class ModelController {
         return AbstractApiResult.success();
     }
 
-}
+}*/
