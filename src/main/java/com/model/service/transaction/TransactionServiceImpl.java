@@ -42,15 +42,24 @@ public class TransactionServiceImpl implements TransactionService{
         if(!file.isDirectory()) {
             throw exceptionManager.createByMessage("此文件路径不是文件夹");
         }
+        this.transactionFile(file);
 
+    }
+
+    private void transactionFile(File file) throws Exception {
         File[] files = file.listFiles();
         if (files.length == 0) {
             return;
         }
         for (File item: files) {
+            boolean directory = item.isDirectory();
             String name = item.getName();
-            String fn = name.substring(0, name.lastIndexOf("."));
-            String suffix = name.substring(name.lastIndexOf(".") + 1);
+            String fn = name;
+            String suffix = "";
+            if (!directory) {
+                fn = name.substring(0, name.lastIndexOf("."));
+                suffix = name.substring(name.lastIndexOf(".") + 1);
+            }
 
             String salt = UUIDUtils.getUUID().substring(8);
 
@@ -75,8 +84,18 @@ public class TransactionServiceImpl implements TransactionService{
             String dst = result.getDst();
 
 //            String newFileName = fn + "-" + dst + "." + suffix;
-            String newFileName = "【" + dst + "】" + fn + "." + suffix;
-            item.renameTo(new File(transactionDTO.getPath() + "//" + newFileName));
+            String newFileName = "【" + dst + "】" + fn;
+            if (!directory) {
+                newFileName = newFileName + "." + suffix;
+            }
+
+            File newFile = new File(file.getPath() + "//" + newFileName);
+            item.renameTo(newFile);
+
+            if (directory) {
+                transactionFile(newFile);
+            }
+
         }
     }
 }
