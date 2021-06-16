@@ -14,7 +14,6 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.Resource;
 import java.io.File;
 import java.net.URLEncoder;
-import java.util.List;
 
 /**
  * @author Morning JS
@@ -42,11 +41,11 @@ public class TransactionServiceImpl implements TransactionService{
         if(!file.isDirectory()) {
             throw exceptionManager.createByMessage("此文件路径不是文件夹");
         }
-        this.transactionFile(file);
+        this.transactionFile(file, transactionDTO.getFlag());
 
     }
 
-    private void transactionFile(File file) throws Exception {
+    private void transactionFile(File file, Boolean flag) throws Exception {
         File[] files = file.listFiles();
         if (files.length == 0) {
             return;
@@ -54,6 +53,7 @@ public class TransactionServiceImpl implements TransactionService{
         for (File item: files) {
             boolean directory = item.isDirectory();
             String name = item.getName();
+            name = name.replace("_", " ");
             String fn = name;
             String suffix = "";
             if (!directory) {
@@ -92,8 +92,8 @@ public class TransactionServiceImpl implements TransactionService{
             File newFile = new File(file.getPath() + "//" + newFileName);
             item.renameTo(newFile);
 
-            if (directory) {
-                transactionFile(newFile);
+            if (directory && flag) {
+                transactionFile(newFile, flag);
             }
 
         }

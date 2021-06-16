@@ -14,4 +14,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TransactionDTO {
     private String path;
+    private Boolean flag;
 }
