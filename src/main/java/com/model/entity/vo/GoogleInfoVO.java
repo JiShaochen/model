@@ -4,17 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
  * @author Morning JS
- * @date 2021/6/8 14:45
- * @desc 翻译
+ * @date 2021/8/9 14:24
+ * @desc
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionVO {
-    private String error_code;
-    private List<TransactionInfoVO> trans_result;
+public class GoogleInfoVO {
+    private String trans;
+    private String orig;
+    private String backend;
 }

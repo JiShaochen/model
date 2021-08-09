@@ -8,13 +8,12 @@ import java.util.List;
 
 /**
  * @author Morning JS
- * @date 2021/6/8 14:45
- * @desc 翻译
+ * @date 2021/8/9 14:23
+ * @desc
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionVO {
-    private String error_code;
-    private List<TransactionInfoVO> trans_result;
+public class GoogleTransactionVO {
+    private List<GoogleInfoVO> sentences;
 }

@@ -6,14 +6,18 @@ import com.model.common.utils.json.JsonUtils;
 import com.model.common.utils.md5.MD5Utils;
 import com.model.common.utils.uuid.UUIDUtils;
 import com.model.entity.dto.transaction.TransactionDTO;
+import com.model.entity.vo.GoogleTransactionVO;
 import com.model.entity.vo.TransactionInfoVO;
 import com.model.entity.vo.TransactionVO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Objects;
 
 /**
  * @author Morning JS
@@ -77,11 +81,20 @@ public class TransactionServiceImpl implements TransactionService{
             String s = HttpClient.doGet(stringBuilder.toString());
             System.out.println(s);
             TransactionVO transactionVO = JsonUtils.jsonToBean(s, TransactionVO.class);
-            if (CollectionUtils.isEmpty(transactionVO.getTrans_result())) {
-                continue;
+            String dst;
+            if (!(CollectionUtils.isEmpty(transactionVO.getTrans_result()) || "54004".equals(transactionVO.getError_code()))) {
+                TransactionInfoVO result = transactionVO.getTrans_result().get(0);
+                dst = result.getDst();
+            } else {
+                String url = "http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=zh_cn&q=" + URLEncoder.encode(fn, "utf-8");
+                String result = HttpClient.doGet(url);
+                System.out.println(result);
+                GoogleTransactionVO data = JsonUtils.jsonToBean(result, GoogleTransactionVO.class);
+                if (Objects.isNull(data) || data.getSentences().isEmpty() || StringUtils.isEmpty(data.getSentences().get(0).getTrans())) {
+                    continue;
+                }
+                dst = data.getSentences().get(0).getTrans();
             }
-            TransactionInfoVO result = transactionVO.getTrans_result().get(0);
-            String dst = result.getDst();
 
 //            String newFileName = fn + "-" + dst + "." + suffix;
             String newFileName = "【" + dst + "】" + fn;
