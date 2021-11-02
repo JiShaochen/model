@@ -17,7 +17,7 @@ spring:
     poolPreparedStatements: true
     filters: stat,wall,slf4j
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.95.197.255:3307/lizheng?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.159.128:3306/shaochen?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
     platform: mysql
@@ -35,13 +35,26 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-
+#=======================================redis===================================================
+  redis:
+    host: 192.168.159.128
+    port: 6379
+    database: 10
+#    password: mMpIskCKX58K
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
 #=================================其他配置========================================================
 #解决mybaits传入空值问题
 mybatis:
   configuration:
     jdbc-type-for-null: NULL
     map-underscore-to-camel-case: true
+
 
 #配置swagger
 swagger:

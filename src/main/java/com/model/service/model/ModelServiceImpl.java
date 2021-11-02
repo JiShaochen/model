@@ -10,6 +10,7 @@ import com.model.entity.model.Account;
 import com.model.entity.vo.CourseVO;
 import com.model.mapper.AccountMapper;
 import com.model.mapper.model.ModelMapper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -37,7 +38,13 @@ public class ModelServiceImpl implements ModelService {
     AccountMapper accountMapper;
 
     @Override
+    @Async
     public String getTest() {
+        try {
+            Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return modelMapper.getTest();
     }
 

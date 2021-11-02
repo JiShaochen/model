@@ -39,6 +39,10 @@ dependencies {
     // swagger
     compile("io.springfox:springfox-swagger-ui:2.9.2")
     compile("io.springfox:springfox-swagger2:2.9.2")
+    // redis
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.4.4'
+    // redisson
+    compile 'org.redisson:redisson-spring-boot-starter:3.15.4'
 
 }
 
