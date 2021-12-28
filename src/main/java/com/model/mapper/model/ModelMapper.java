@@ -1,5 +1,6 @@
 package com.model.mapper.model;
 
+import com.model.entity.model.Mail;
 import com.model.entity.vo.CourseVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -27,4 +28,7 @@ public interface ModelMapper {
 
     @Select("select * from `Course`")
     List<CourseVO> getList();
+
+    @Select("select * from mail")
+    List<Mail> listMails();
 }

@@ -17,4 +17,6 @@ public interface ModelService {
     void postTest(CourseVO courseVO);
 
     PageResult postList(PageParam pageParam);
+
+    void sendMail();
 }

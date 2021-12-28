@@ -37,9 +37,9 @@ public class RequestAop {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             String token = request.getHeader("token");
             Claims claims = JWTUtils.checkJWT(token);
-            Account account = JsonUtils.jsonToBean(claims.get("account").toString(), Account.class);
-            account.setId(++count);
-            UserThreadLocalDTO.setThreadLocal(account);
+//            Account account = JsonUtils.jsonToBean(claims.get("account").toString(), Account.class);
+//            account.setId(++count);
+//            UserThreadLocalDTO.setThreadLocal(account);
 
             //方法执行完成后执行的方法
             proceed = pro.proceed();

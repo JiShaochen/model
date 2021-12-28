@@ -1,3 +1,4 @@
+/*
 package com.model.common.queue;
 
 import org.redisson.api.RBlockingDeque;
@@ -9,11 +10,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
+*/
 /**
  * 封装 Redis 延迟队列工具
  * <p>
  * Created by michael on 2021-04-25.
- */
+ *//*
+
 @Component
 public class RedisDelayQueueUtil {
 
@@ -24,14 +27,16 @@ public class RedisDelayQueueUtil {
         void execute(T t);
     }
 
-    /**
+    */
+/**
      * 添加延迟队列
      *
      * @param t
      * @param delay
      * @param timeUnit
      * @param <T>
-     */
+     *//*
+
     public <T> void addDelayQueue(T t, long delay, TimeUnit timeUnit) {
         try {
             RBlockingDeque<Object> blockingDeque = redissonClient.getBlockingDeque(t.getClass().getName());
@@ -57,3 +62,4 @@ public class RedisDelayQueueUtil {
         }).run();
     }
 }
+*/

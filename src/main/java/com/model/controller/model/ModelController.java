@@ -1,6 +1,5 @@
 package com.model.controller.model;
 
-import com.model.common.queue.RedisDelayQueueUtil;
 import com.model.common.queue.dto.DemoQueueDTO;
 import com.model.common.user.UserThreadLocalDTO;
 import com.model.common.utils.apiresult.AbstractApiResult;
@@ -12,10 +11,12 @@ import com.model.service.model.ModelService;
 import com.model.service.syncmodel.abstrcat.SyncModelAbstract;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -39,12 +40,6 @@ public class ModelController {
 
     @Resource
     ExceptionManager exceptionManager;
-
-    @Resource
-    RedisTemplate redisTemplate;
-
-    @Resource
-    RedisDelayQueueUtil redisDelayQueueUtil;
 
     @GetMapping(value = "/test")
     @ApiOperation(value = "测试接口是否能正常通过")
@@ -101,26 +96,13 @@ public class ModelController {
         return AbstractApiResult.success();
     }
 
-    @GetMapping(value = "/redis/test")
-    @ApiOperation(value = "测试redis是否可用")
-    public AbstractApiResult testRedis() {
-        redisTemplate.opsForValue().set("test", "少臣");
-        return AbstractApiResult.success(redisTemplate.opsForValue().get("test"));
-    }
 
-    @GetMapping(value = "/redisson/test")
-    @ApiOperation(value = "redisson测试")
-    public AbstractApiResult testRedisson() {
-        redisTemplate.opsForValue().get("test");
-        Map<String, Object> map1 = new HashMap<>();
-        map1.put("orderId", "100");
-        DemoQueueDTO demoQueueDTO = new DemoQueueDTO();
-        demoQueueDTO.setId(1L);
-        demoQueueDTO.setName("少臣");
-        for (int i = 0; i < 10; i++) {
-            redisDelayQueueUtil.addDelayQueue(demoQueueDTO, 3 * (i+1), TimeUnit.SECONDS);
-        }
-        return AbstractApiResult.success(redisTemplate.opsForValue().get("test"));
+    @GetMapping(value = "/mail")
+    @ApiOperation(value = "发邮件")
+    public AbstractApiResult mail() {
+        modelService.sendMail();
+
+        return AbstractApiResult.success();
     }
 
 }

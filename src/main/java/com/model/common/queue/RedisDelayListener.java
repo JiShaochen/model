@@ -1,3 +1,4 @@
+/*
 package com.model.common.queue;
 
 import com.model.common.queue.dto.DemoQueueDTO;
@@ -6,11 +7,13 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+*/
 /**
  * @author Morning JS
  * @date 2021/10/11 14:52
  * @desc
- */
+ *//*
+
 @Component
 public class RedisDelayListener implements CommandLineRunner {
 
@@ -30,4 +33,4 @@ public class RedisDelayListener implements CommandLineRunner {
 
         redissonClient.getQueue(DemoQueueDTO.class.getName(), listener);
     }
-}
+}*/
