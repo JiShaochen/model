@@ -36,11 +36,11 @@ public class ControllerMethodParamLog {
     @Before("aspect()")
     public void before(JoinPoint point) {
 
-        //访问路径
+/*        //访问路径
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
         String className = point.getSignature().getDeclaringType().getSimpleName();
-        String methodName = point.getSignature().getName();
+        String methodName = point.getSignature().getName();*/
 
         //请求路径，类名，方法名，参数列表
 //        log.log(Level.INFO, "\n---------请求路径: " + request.getRequestURI()

@@ -32,11 +32,11 @@ public class RequestAop {
 
         Object proceed = null;
         try {
-            String name = Thread.currentThread().getName();
+           /* String name = Thread.currentThread().getName();
             System.out.println("thread name is " + name);
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             String token = request.getHeader("token");
-            Claims claims = JWTUtils.checkJWT(token);
+            Claims claims = JWTUtils.checkJWT(token);*/
 //            Account account = JsonUtils.jsonToBean(claims.get("account").toString(), Account.class);
 //            account.setId(++count);
 //            UserThreadLocalDTO.setThreadLocal(account);

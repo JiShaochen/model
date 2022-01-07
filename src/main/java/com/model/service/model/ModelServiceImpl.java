@@ -12,6 +12,12 @@ import com.model.entity.model.Mail;
 import com.model.entity.vo.CourseVO;
 import com.model.mapper.AccountMapper;
 import com.model.mapper.model.ModelMapper;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -21,6 +27,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -129,7 +136,7 @@ public class ModelServiceImpl implements ModelService {
                title = title.replace("xx", mail.getName());
            }
            message.setSubject(title + "还有" + twoTime + "天就过年了！");
-
+           String auto = doGet();
            // 设置邮件发送者，这个跟application.yml中设置的要一致
            message.setFrom("17611413208@163.com");
            // 设置邮件接收者，可以有多个接收者，中间用逗号隔开，以下类似
@@ -140,13 +147,39 @@ public class ModelServiceImpl implements ModelService {
            // 设置邮件的正文
            String message1 = mail.getMessage();
            if (message1.contains("xx")) {
-               message1 = message1.replace("xx", mail.getName());
+               message1 = message1.replace("xx", mail.getName()) + "\r\n \r\n" + auto;
            }
            message.setText(message1);
            // 发送邮件
            javaMailSender.send(message);
+
+           Thread.sleep(800);
        } catch (Exception e) {
            System.out.println("报错了: " + mail.getName() + e.getMessage());
        }
     }
+
+    public static String doGet() {
+        String url = "https://chp.shadiao.app/api.php";
+        try {
+            HttpClient client = new DefaultHttpClient();
+            //发送get请求
+            HttpGet request = new HttpGet(url);
+            HttpResponse response = client.execute(request);
+
+            /**请求发送成功，并得到响应**/
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                /**读取服务器返回过来的json字符串数据**/
+                String strResult = EntityUtils.toString(response.getEntity());
+
+                return strResult;
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

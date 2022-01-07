@@ -17,11 +17,9 @@ public class Job {
     @Resource
     ModelService modelService;
 
-    @Scheduled(cron = "0 0 10 * * ? ")
-//    @Scheduled(cron = "* * * * * ? *")
+    @Scheduled(cron = "0 0 8 * * ? ")
     public void execute() {
         modelService.sendMail();
-//        System.out.println(111);
     }
 
 }
