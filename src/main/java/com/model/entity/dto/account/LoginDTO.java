@@ -15,14 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginDTO {
-    private static final String salt = "Morning JS";
 
-    private String userName;
+    private String username;
     private String password;
 
     public String getPassword() {
         try {
-            return MD5Utils.md5Bit16Upper(this.password + salt);
+            return MD5Utils.md5Bit32Upper(this.password);
         } catch (Exception e) {
             // TODO 集成日志
             System.out.println("加密错误");

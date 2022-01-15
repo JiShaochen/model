@@ -33,7 +33,6 @@ public class JWTUtils {
      */
     public static String geneJsonWebToken(Account account){
         return Jwts.builder().setSubject(SUBJECT)    //设置住体（颁布者）
-                .claim("info", JsonUtils.beanToJson(account)) //设置荷载
                 .claim("id",account.getId()) //设置荷载
                 .setIssuedAt(new Date())//设置生成时间
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))//设置过期时间

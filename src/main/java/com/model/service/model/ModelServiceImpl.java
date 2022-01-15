@@ -78,7 +78,6 @@ public class ModelServiceImpl implements ModelService {
         Account account = accountMapper.selectById(94502);
         System.out.println(account);
 
-        account.setEquipment("CTX123456");
         accountMapper.updateById(account);
 
         QueryWrapper<Account> queryWrapper = new QueryWrapper();

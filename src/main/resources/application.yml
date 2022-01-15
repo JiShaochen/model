@@ -29,7 +29,7 @@ spring:
     testOnReturn: false
     driver-class-name: com.mysql.cj.jdbc.Driver
     maxActive: 300
-    schema: classpath:model.sql
+    schema: classpath:scheme.sql
     initialization-mode: always
   jpa:
     show-sql: true
